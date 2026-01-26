@@ -1,12 +1,15 @@
 spring:
   application:
     name: user-service
-  
+
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:postgresql://db.hvkezmohhdfazwammrne.supabase.co:5432/postgres
+    username: postgres
+    password: SWD392_Group_5
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      data-source-properties:
+        ssl: require
   
   jpa:
     hibernate:
@@ -14,14 +17,14 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
   
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ${MAIL_USERNAME:huhuaa855@gmail.com}
-    password: ${MAIL_PASSWORD:wvce mzqg zndz obww}
+    username: ${MAIL_USERNAME:example@com}
+    password: ${MAIL_PASSWORD:123456}
     properties:
       mail:
         smtp:
@@ -34,7 +37,7 @@ spring:
           writetimeout: 5000
 
 server:
-  port: 8081
+  port: ${PORT:8080}
 
 app:
   frontend:
@@ -42,12 +45,13 @@ app:
 
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
+    enabled: false
+  #   service-url:
+  #     defaultZone: http://localhost:8761/eureka/
+  #   register-with-eureka: true
+  #   fetch-registry: true
+  # instance:
+  #   prefer-ip-address: true
 
 jwt:
   secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970

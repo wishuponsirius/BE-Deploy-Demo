@@ -3,7 +3,6 @@ package com.example.microservice.user_service.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.example.microservice.user_service.dto.*;
 import com.example.microservice.user_service.dto.Request.CreateUserRequest;
 import com.example.microservice.user_service.dto.Request.LoginRequest;
 import com.example.microservice.user_service.dto.Request.RegisterRequest;
