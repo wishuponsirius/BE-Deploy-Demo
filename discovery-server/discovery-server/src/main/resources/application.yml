@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:8761}
+spring:
+  application:
+    name: discovery-server
+eureka:
+  instance:
+    hostname: ${RAILWAY_PRIVATE_DOMAIN}
+    prefer-ip-address: false
+  client:
+    register-with-eureka: false
+    fetch-registry: false

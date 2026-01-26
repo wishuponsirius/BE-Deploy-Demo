@@ -1,0 +1,4 @@
+com\example\microservice\user_service\entity\User$UserBuilder.class
+com\example\microservice\user_service\entity\User.class
+com\example\microservice\user_service\service\AuthService.class
+com\example\microservice\user_service\repository\UserRepository.class
