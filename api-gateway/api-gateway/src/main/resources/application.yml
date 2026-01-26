@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
   application:
@@ -10,7 +10,7 @@ spring:
       routes:
         # User Service API Docs (no auth required - must be before user-service route)
         - id: user-service-docs
-          uri: lb://user-service
+          uri: https://user-service.up.railway.app
           predicates:
             - Path=/api/users/v3/api-docs
           filters:
@@ -18,26 +18,26 @@ spring:
                       
         # User Service Auth Routes (no auth required)
         - id: user-service-auth
-          uri: lb://user-service
+          uri: https://user-service.up.railway.app
           predicates:
             - Path=/api/auth/**
             
         # Admin Routes (auth required)
         - id: admin-service
-          uri: lb://user-service
+          uri: https://user-service.up.railway.app
           predicates:
             - Path=/api/admin/**
             
         # User Service Routes
         - id: user-service
-          uri: lb://user-service
+          uri: https://user-service.up.railway.app
           predicates:
             - Path=/api/users/**
     
       discovery:
         locator:
-          enabled: true
-          lower-case-service-id: true
+          enabled: false
+          # lower-case-service-id: true
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -103,11 +103,12 @@ logging:
 # Eureka Client
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    hostname: localhost
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 30
+    enabled: false
+  #   service-url:
+  #     defaultZone: http://localhost:8761/eureka/
+  #   register-with-eureka: true
+  #   fetch-registry: true
+  # instance:
+  #   hostname: localhost
+  #   prefer-ip-address: true
+  #   lease-renewal-interval-in-seconds: 30
