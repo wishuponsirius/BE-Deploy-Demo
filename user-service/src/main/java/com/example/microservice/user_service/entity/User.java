@@ -53,6 +53,6 @@ public class User {
     @Column(name = "update_date")
     private LocalDateTime updateDate;
 
-    @Column(name = "is_deleted", nullable = false)
+    @Column(name = "is_delete", nullable = false)
     private Boolean isDeleted = false;
 }
