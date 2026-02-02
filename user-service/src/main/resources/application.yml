@@ -72,3 +72,4 @@ logging:
   level:
     com.example.microservice.user_service: DEBUG
     org.springframework.security: DEBUG
+    org.springframework.core.env: TRACE
